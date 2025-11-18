@@ -21,45 +21,29 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 @Composable
-fun LoginScreen(navController: NavController) {
-
-    var usuario by remember { mutableStateOf("") }
-    var senha by remember { mutableStateOf("") }
-
-    Column(
-        modifier = Modifier
+fun LoginScreen(modifier: Modifier = Modifier, navController: NavController) {
+    Box(
+        modifier = modifier
             .fillMaxSize()
-            .padding(24.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+            .background(Color(0xFFED145B))
+            .padding(32.dp)
     ) {
-
-        Text(text = "Login", style = MaterialTheme.typography.headlineLarge)
-
-        Spacer(modifier = Modifier.height(32.dp))
-
-        OutlinedTextField(
-            value = usuario,
-            onValueChange = { usuario = it },
-            label = { Text("Usuário") },
-            modifier = Modifier.fillMaxWidth()
+        Text(
+            text = "LOGIN",
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.White
         )
-
-        OutlinedTextField(
-            value = senha,
-            onValueChange = { senha = it },
-            label = { Text("Senha") },
-            visualTransformation = PasswordVisualTransformation(),
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
-
         Button(
             onClick = { navController.navigate("menu") },
-            modifier = Modifier.fillMaxWidth()
+            colors = ButtonDefaults.buttonColors(Color.White),
+            modifier = Modifier.align(Alignment.Center)
         ) {
-            Text("Entrar")
+            Text(
+                text = "ENTRAR",
+                fontSize = 20.sp,
+                color = Color.Blue
+            )
         }
     }
 }

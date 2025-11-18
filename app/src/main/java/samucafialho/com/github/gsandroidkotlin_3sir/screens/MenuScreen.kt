@@ -1,59 +1,89 @@
 package samucafialho.com.github.gsandroidkotlin_3sir.screens
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.compose.ui.text.font.FontWeight
 
 @Composable
-fun MenuScreen(navController: NavController) {
-
-    Column(
-        modifier = Modifier
+fun MenuScreen(modifier: Modifier = Modifier, navController: NavController) {
+    Box(
+        modifier = modifier
             .fillMaxSize()
-            .padding(24.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+            .background(Color(0xFFED145B)) // vermelho igual IMC
+            .padding(32.dp)
     ) {
 
-        Text("Menu Principal", style = MaterialTheme.typography.headlineMedium)
+        // Título Menu
+        Text(
+            text = "MENU",
+            fontSize = 28.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.White
+        )
 
-        Spacer(modifier = Modifier.height(40.dp))
-
-        Button(
-            onClick = { navController.navigate("imc") },
-            modifier = Modifier.fillMaxWidth()
+        // Botões centrais
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.Center)
         ) {
-            Text("Calcular IMC")
-        }
 
-        Spacer(modifier = Modifier.height(16.dp))
+            // --- BOTÃO IMC ---
+            Button(
+                onClick = { navController.navigate("imc") },
+                colors = ButtonDefaults.buttonColors(Color.White),
+                modifier = Modifier.size(width = 220.dp, height = 48.dp)
+            ) {
+                Text(
+                    text = "Calcular IMC",
+                    fontSize = 18.sp,
+                    color = Color(0xFFED145B),
+                    fontWeight = FontWeight.Bold
+                )
+            }
 
-        Button(
-            onClick = { navController.navigate("equipe") },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Equipe")
-        }
+            Spacer(modifier = Modifier.height(20.dp))
 
-        Spacer(modifier = Modifier.height(16.dp))
+            // --- BOTÃO EQUIPE ---
+            Button(
+                onClick = { navController.navigate("equipe") },
+                colors = ButtonDefaults.buttonColors(Color.White),
+                modifier = Modifier.size(width = 220.dp, height = 48.dp)
+            ) {
+                Text(
+                    text = "Integrantes",
+                    fontSize = 18.sp,
+                    color = Color(0xFFED145B),
+                    fontWeight = FontWeight.Bold
+                )
+            }
 
-        Button(
-            onClick = { navController.navigate("login") },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Sair")
+            Spacer(modifier = Modifier.height(20.dp))
+
+            // --- BOTÃO SAIR ---
+            Button(
+                onClick = { navController.navigate("login") },
+                colors = ButtonDefaults.buttonColors(Color.White),
+                modifier = Modifier.size(width = 220.dp, height = 48.dp)
+            ) {
+                Text(
+                    text = "Sair",
+                    fontSize = 18.sp,
+                    color = Color(0xFFED145B),
+                    fontWeight = FontWeight.Bold
+                )
+            }
         }
     }
 }

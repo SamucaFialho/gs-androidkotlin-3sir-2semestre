@@ -31,10 +31,9 @@ fun EquipeScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        Text("• Nome 1")
-        Text("• Nome 2")
-        Text("• Nome 3")
-        Text("• Nome 4")
+        Text("• Samuel Fialho")
+        Text("• Henrique de Mello Alves")
+
 
         Spacer(modifier = Modifier.height(40.dp))
 

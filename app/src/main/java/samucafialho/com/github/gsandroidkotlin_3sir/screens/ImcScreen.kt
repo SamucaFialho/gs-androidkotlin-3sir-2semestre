@@ -19,69 +19,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
-@Composable
-fun ImcScreen(navController: NavController) {
 
-    var peso by remember { mutableStateOf("") }
-    var altura by remember { mutableStateOf("") }
-    var resultado by remember { mutableStateOf("") }
+fun calcularImc(altura: Double, peso: Double): Double {
+    return peso / (altura / 100).pow(2.0)
+}
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(24.dp),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-
-        Text("Cálculo de IMC", style = MaterialTheme.typography.headlineMedium)
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        OutlinedTextField(
-            value = peso,
-            onValueChange = { peso = it },
-            label = { Text("Peso (kg)") },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        OutlinedTextField(
-            value = altura,
-            onValueChange = { altura = it },
-            label = { Text("Altura (m)") },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        Button(
-            onClick = {
-                val p = peso.toFloatOrNull()
-                val a = altura.toFloatOrNull()
-
-                if (p != null && a != null && a > 0f) {
-                    val imc = p / a.pow(2)
-                    resultado = "Seu IMC é: %.2f".format(imc)
-                } else {
-                    resultado = "Valores inválidos"
-                }
-            },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Calcular")
-        }
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        Text(resultado)
-
-        Spacer(modifier = Modifier.height(40.dp))
-
-        Button(
-            onClick = { navController.navigate("menu") },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Voltar ao Menu")
-        }
-    }
+fun determinarClassificacaoIMC(imc: Double): String {
+    return if(imc < 18.5) {
+        "Abaixo do peso"
+    } else if (imc >= 18.5 && imc < 25.0) {
+        "Peso Ideal"
+    } else if (imc >= 25.0 && imc < 30.0) {
+        "Levemente acima do peso"
+    } else if (imc >= 30.0 && imc < 35.0) {
+        "Obesidade Grau I"
+    } else if (imc >= 35.0 && imc < 40.0) {
+        "Obesidade Grau II"
+    } else {"Obesidade Grau III"}
 }
