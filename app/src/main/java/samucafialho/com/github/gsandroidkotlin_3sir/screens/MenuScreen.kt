@@ -19,11 +19,10 @@ fun MenuScreen(modifier: Modifier = Modifier, navController: NavController) {
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(Color(0xFFED145B)) // vermelho igual IMC
+            .background(Color(0xFFED145B))
             .padding(32.dp)
     ) {
 
-        // Título Menu
         Text(
             text = "MENU",
             fontSize = 28.sp,
@@ -31,7 +30,6 @@ fun MenuScreen(modifier: Modifier = Modifier, navController: NavController) {
             color = Color.White
         )
 
-        // Botões centrais
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
@@ -39,7 +37,6 @@ fun MenuScreen(modifier: Modifier = Modifier, navController: NavController) {
                 .align(Alignment.Center)
         ) {
 
-            // --- BOTÃO IMC ---
             Button(
                 onClick = { navController.navigate("imc") },
                 colors = ButtonDefaults.buttonColors(Color.White),
@@ -55,9 +52,8 @@ fun MenuScreen(modifier: Modifier = Modifier, navController: NavController) {
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // --- BOTÃO EQUIPE ---
             Button(
-                onClick = { navController.navigate("equipe") },
+                onClick = { navController.navigate("integrantes") },
                 colors = ButtonDefaults.buttonColors(Color.White),
                 modifier = Modifier.size(width = 220.dp, height = 48.dp)
             ) {
@@ -71,7 +67,6 @@ fun MenuScreen(modifier: Modifier = Modifier, navController: NavController) {
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // --- BOTÃO SAIR ---
             Button(
                 onClick = { navController.navigate("login") },
                 colors = ButtonDefaults.buttonColors(Color.White),

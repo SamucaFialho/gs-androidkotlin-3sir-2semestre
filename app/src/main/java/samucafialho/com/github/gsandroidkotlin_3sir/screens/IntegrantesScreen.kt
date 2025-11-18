@@ -17,7 +17,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 @Composable
-fun EquipeScreen(navController: NavController) {
+fun IntegrantesScreen(modifier: Modifier = Modifier,
+                      navController: NavController) {
 
     Column(
         modifier = Modifier
@@ -27,7 +28,7 @@ fun EquipeScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Text("Equipe", style = MaterialTheme.typography.headlineMedium)
+        Text("Integrantes", style = MaterialTheme.typography.headlineMedium)
 
         Spacer(modifier = Modifier.height(32.dp))
 
