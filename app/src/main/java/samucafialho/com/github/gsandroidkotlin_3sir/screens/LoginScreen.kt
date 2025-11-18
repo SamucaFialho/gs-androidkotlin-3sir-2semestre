@@ -27,7 +27,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 @Composable
-fun LoginScreen(modifier: Modifier = Modifier, navController: NavController) {
+fun LoginScreen(
+    modifier: Modifier = Modifier,
+    navController: NavController,
+    usuario: String,
+    senha: String
+) {
     Box(
         modifier = modifier
             .fillMaxSize()

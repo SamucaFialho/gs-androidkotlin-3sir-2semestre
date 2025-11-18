@@ -39,9 +39,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import samucafialho.com.github.gsandroidkotlin_3sir.screens.IntegrantesScreen
 import samucafialho.com.github.gsandroidkotlin_3sir.screens.LoginScreen
 import samucafialho.com.github.gsandroidkotlin_3sir.screens.MenuScreen
@@ -63,10 +65,19 @@ class MainActivity : ComponentActivity() {
                         startDestination = "login"
                     ) {
 
-                        composable("login") {
+                        composable("login/{usuario}/{senha}",
+                            arguments = listOf(
+                                navArgument("usuario") { type = NavType.StringType },
+                                navArgument("senha") { type = NavType.StringType }
+                            )
+                            ) {
+                                val usuario: String? = it.arguments?.getString("usuario", "usuário")
+                                val senha: String? = it.arguments?.getString("senha", "senha")
                             LoginScreen(
                                 modifier = Modifier.padding(innerPadding),
-                                navController
+                                navController,
+                                usuario!!,
+                                senha!!
                             )
                         }
 
