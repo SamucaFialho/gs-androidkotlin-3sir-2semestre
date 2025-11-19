@@ -1,6 +1,8 @@
 # Nome: Henrique de Mello Alves - 551273
 # Nome: Samuel Fialho - 551824
 
+Link do repo: https://github.com/SamucaFialho/gs-androidkotlin-3sir-2semestre
+
 <img width="262" height="553" alt="TelaLogin" src="https://github.com/user-attachments/assets/4be930db-4f82-4cd3-993c-2c2d085bc4c3" />
 
 <img width="262" height="547" alt="TelaMenu" src="https://github.com/user-attachments/assets/0b51bf84-c4ad-4a5b-b093-8d2546baf552" />
